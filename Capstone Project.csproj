@@ -80,7 +80,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.html" />
     <Content Include="Global.asax" />
+    <Content Include="images\background.jpg" />
+    <Content Include="images\medicalBackground.jpg" />
+    <Content Include="images\people\Donna.png" />
+    <Content Include="images\people\Emily.png" />
+    <Content Include="images\people\Eric.JPEG" />
+    <Content Include="images\people\Kyra.png" />
+    <Content Include="images\people\Harshit.jpg" />
+    <Content Include="images\people\Jamie.jpg" />
+    <Content Include="images\people\Leo.PNG" />
+    <Content Include="images\people\Olivia.jpg" />
+    <Content Include="images\people\Rishabh.jpeg" />
+    <Content Include="images\people\Sanjit.png" />
+    <Content Include="images\Sonic Care Logo %282%29.png" />
     <Content Include="index.html" />
     <Content Include="lib\jquery\jquery.js" />
     <Content Include="lib\jquery\jquery.min.js" />
@@ -92,7 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\DataController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
