@@ -81,8 +81,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.html" />
+    <Content Include="contact.html" />
     <Content Include="Global.asax" />
+    <Content Include="images\aboutUsPage.jpg" />
     <Content Include="images\background.jpg" />
+    <Content Include="images\contactPageBackground.jpg" />
     <Content Include="images\medicalBackground.jpg" />
     <Content Include="images\people\Donna.png" />
     <Content Include="images\people\Emily.png" />
@@ -102,14 +105,24 @@
     <Content Include="lib\jquery\jquery.slim.min.js" />
     <Content Include="lib\ng-bootstrap\ng-bootstrap.umd.js" />
     <Content Include="lib\ng-bootstrap\ng-bootstrap.umd.min.js" />
+    <Content Include="Login.html" />
+    <Content Include="Patient.html" />
+    <Content Include="Signup.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ParentController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginPayload.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Provider.cs" />
+    <Compile Include="Models\SignUpPayload.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,7 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

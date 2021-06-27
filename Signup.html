@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/Sonic Care Logo (2).png" />
+    <title>SignUp | Sonic Care</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container" style="margin-bottom: 4rem;">
+        <div class="row">
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+                <div class="col-lg-12 login-key">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 login-title">
+                    Patient Signup Site
+                </div>
+
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form>
+                            <div class="form-group">
+                                <label class="form-control-label">EMAIL</label>
+                                <input type="text" id="Email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">USERNAME</label>
+                                <input type="text" id="Username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">PASSWORD</label>
+                                <input type="password" id="Password1" class="form-control"  required>
+                                <p class="mb-2 text-primary">Password requirements</p>
+                                <ul class="small text-muted pl-4 mb-0">
+                                    <li id="req1P">Minimum 8 character</li>
+                                    <li id="req2P">At least one special character</li>
+                                    <li id="req3P">At least one number</li>
+                                    <li id="req4P">At least one captial letter</li>
+                                    <li id="req5P">At least one lowercase letter</li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">CONFIRM PASSWORD</label>
+                                <input type="password" id="Password2" class="form-control" required>
+                                <div class="invalid-feedback ifP" style="color: blue">
+                                    Please make sure passwords match!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">BIRTH DATE</label>
+                                <input type="date" id="BirthDate" class="form-control" required>
+                            </div>
+
+                            <div class="col-12 loginbttm">
+                                <div class="col-2 w-100 login-btm login-text text-primary">
+                                    <!-- Error Message -->
+                                </div>
+                                <div class="col-10 login-btm login-button">
+                                    <button type="submit" class="btn btn-outline-primary">SIGN UP</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-white" style="position: static; opacity: 0.7;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html">
+                    <img width="75" height="75" src="images/Sonic Care Logo (2).png" />
+                    Copyright(c) Sonic Care
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+                    <div class="navbar-nav me-auto">
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Login/Signup
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/Login.html">Login</a>
+                            <a class="dropdown-item" href="/Signup.html">SignUp</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link text-primary" href="/about.html">About Us</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link text-primary" href="/contact.html">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </footer>
+    <style>
+        body {
+            background: #222D32;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .login-box {
+            margin-top: 75px;
+            height: auto;
+            background: #1A2226;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .login-key {
+            height: 100px;
+            font-size: 80px;
+            line-height: 100px;
+            background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .login-title {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ECF0F5;
+        }
+
+        .login-form {
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        input[type=text], input[type=date] {
+            background-color: #1A2226;
+            border: none;
+            border-bottom: 2px solid #0DB8DE;
+            border-top: 0px;
+            border-radius: 0px;
+            font-weight: bold;
+            outline: 0;
+            margin-bottom: 20px;
+            padding-left: 0px;
+            color: #ECF0F5;
+        }
+
+        input[type=password] {
+            background-color: #1A2226;
+            border: none;
+            border-bottom: 2px solid #0DB8DE;
+            border-top: 0px;
+            border-radius: 0px;
+            font-weight: bold;
+            outline: 0;
+            padding-left: 0px;
+            margin-bottom: 20px;
+            color: #ECF0F5;
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+            outline: 0px;
+        }
+
+        .form-control:focus {
+            border-color: inherit;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-bottom: 2px solid #0DB8DE;
+            outline: 0;
+            background-color: #1A2226;
+            color: #ECF0F5;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0;
+        }
+
+        label {
+            margin-bottom: 0px;
+        }
+
+        .form-control-label {
+            font-size: 10px;
+            color: #6C6C6C;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .btn-outline-primary {
+            border-color: #0DB8DE;
+            color: #0DB8DE;
+            border-radius: 0px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+            .btn-outline-primary:hover {
+                background-color: #0DB8DE;
+                right: 0px;
+            }
+
+        .login-btm {
+            float: left;
+        }
+
+        .login-button {
+            padding-right: 0px;
+            text-align: right;
+            margin-bottom: 25px;
+        }
+
+        .login-text {
+            text-align: left;
+            padding-left: 0px;
+            color: #A2A4A4;
+        }
+
+        .loginbttm {
+            padding: 0px;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+    </style>
+    <script>
+
+        let myInput = document.getElementById("Password1");
+        let specialCharacter = document.getElementById("req2P");
+        let capital = document.getElementById("req4P");
+        let lowercase = document.getElementById("req5P");
+        let number = document.getElementById("req3P");
+        let length = document.getElementById("req1P");
+        myInput.addEventListener("keyup", function (event) {
+
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInput.value.match(lowerCaseLetters)) {
+                lowercase.classList.remove("invalid");
+                lowercase.classList.add("valid");
+            } else {
+                lowercase.classList.remove("valid");
+                lowercase.classList.add("invalid");
+            }
+
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
+
+            //Validate Special Characters
+            var specialCharacters = /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/;
+            if (myInput.value.match(specialCharacters)) {
+                specialCharacter.classList.remove("invalid");
+                specialCharacter.classList.add("valid");
+            } else {
+                specialCharacter.classList.add("invalid");
+                specialCharacter.classList.remove("valid");
+            }
+
+            // Validate length
+            if (myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
+        });
+
+        document.getElementById("Password2").addEventListener("keyup", function (event) {
+
+            if (this.value !== document.getElementById("Password1").value) {
+
+                this.classList.remove("is-valid");
+                this.classList.add("is-invalid");
+                document.getElementsByClassName("ifP")[0].style.display = "block";
+            } else {
+                this.classList.remove("is-invalid");
+                this.classList.add("is-valid");
+                document.getElementsByClassName("ifP")[0].style.display = "none";
+            }
+        });
+
+        $("form").submit(function (event) {
+            event.preventDefault();
+            let email = $("#Email").val();
+            let username = $("#Username").val();
+            let password = $("#Password1").val();
+            let confPassword = $("#Password2").val();
+            let birthDate = $("#BirthDate").val();
+
+            if (password !== confPassword) {
+                $(".login-text").text("Password's Don't Match! Please try again!");
+                setTimeout(function () {
+                    window.location.reload(true);
+                }, 1250);
+            }
+
+            $.ajax({
+                url: "/api/SignUp/SignUp",
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify({ "name": username, "email": email, "birthDate": birthDate, "password": password }),
+                success: function (data, status, jqXHR) {
+                    $(".login-text").text(data);
+                    setTimeout(function () {
+                        window.location.assign(jqXHR.getResponseHeader("location"));
+                    }, 1250);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
