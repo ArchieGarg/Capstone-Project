@@ -12,6 +12,7 @@ namespace Capstone_Project.Models
         private String birthDate;
         private String password;
         private Boolean isLoggedIn;
+        private Boolean signedWaiver;
 
         public User()
         {
@@ -25,6 +26,7 @@ namespace Capstone_Project.Models
             this.birthDate = birthDate;
             this.password = password;
             isLoggedIn = false;
+            signedWaiver = false;
         }
 
         public void LogIn()
@@ -75,6 +77,16 @@ namespace Capstone_Project.Models
         public void setPassword(String newPassword)
         {
             password = newPassword;
+        }
+
+        public void signWaiver()
+        {
+            signedWaiver = true;
+        }
+
+        public Boolean getWaiverStatus()
+        {
+            return signedWaiver;
         }
     }
 }

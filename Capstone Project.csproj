@@ -90,9 +90,9 @@
     <Content Include="images\people\Donna.png" />
     <Content Include="images\people\Emily.png" />
     <Content Include="images\people\Eric.JPEG" />
-    <Content Include="images\people\Kyra.png" />
     <Content Include="images\people\Harshit.jpg" />
     <Content Include="images\people\Jamie.jpg" />
+    <Content Include="images\people\Kyra.jpeg" />
     <Content Include="images\people\Leo.PNG" />
     <Content Include="images\people\Olivia.jpg" />
     <Content Include="images\people\Rishabh.jpeg" />
@@ -115,9 +115,11 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ParentController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmailWrapper.cs" />
     <Compile Include="Models\LoginPayload.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Provider.cs" />

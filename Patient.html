@@ -1,10 +1,202 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" href="images/Sonic Care Logo (2).png" />
     <meta charset="utf-8" />
-    <title></title>
+    <title>Welcome to the new way to get the boarding part done</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+
+        let user = sessionStorage.getItem("user_email");
+        if (user === null) {
+            window.location = "/index.html";
+        }
+
+        $.ajax({
+            url: "/api/Login/CanAccess",
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({ "email": user }),
+            success: function (data, status, jqXHR) {
+
+                if (data === "Unauthorized Access")
+                    window.location.assign(jqXHR.getResponseHeader("Location"));
+            }
+        });
+    </script>
 </head>
 <body>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>
+                HIPAA Release Form
+                Please complete all sections of this HIPAA release form. If any sections are left blank, this form
+                will be invalid and it will not be possible for your health information to be shared as requested.
+                Section I
+                I,<input  required/>, give my permission for
+                <input  required/>to share the information listed in
+                Section II of this document with the person(s) or organization(s) I have specified in Section IV
+                of this document.
+                Section II – Health Information
+                I would like to give the above healthcare organization permission to:
+                Tick as appropriate
+                Disclose my complete health record including, but not limited to, diagnoses,
+                lab test results, treatment, and billing records for all conditions.
+                Or
+                Disclose my complete health record except for the following information
+                Mental health records
+                Communicable diseases including, but not limited to, HIV and AIDS
+                Alcohol/drug abuse treatment records
+                Genetic information
+                Other (Specify)
+                <br />
+                <textarea cols="25" rows="25" class="w-100" required></textarea>
+                <br />
+                Form of Disclosure:
+                Electronic copy or access via a web-based portal
+                Hard copy
+                Section III – Reason for Disclosure
+                Please detail the reasons why information is being shared. If you are initiating the request for
+                sharing information and do not wish to list the reasons for sharing, write ‘at my request’.
+                <br />
+                <textarea cols="25" rows="25" class="w-100" required></textarea>
+                <br />
+                Section IV – Who Can Receive My Health Information
+                I give authorization for the health information detailed in section II of this document to be
+                shared with the following individual(s) or organization(s)
+                Name: <input  required/>
+                Organization: <input  required/>
+                Address: <input  required/>
+                I understand that the person(s)/organization(s) listed above may not be covered by
+                state/federal rules governing privacy and security of data and may be permitted to further
+                share the information that is provided to them.
+                Section V – Duration of Authorization
+                This authorization to share my health information is valid:
+                Tick as appropriate
+                a) From <input  required/> to <input  required/>
+                Or
+                b) All past, present, and future periods
+                Or
+                c) The date of the signature in section VI until the following event:
+                <input  required/>
+                I understand that I am permitted to revoke this authorization to share my health data at any
+                time and can do so by submitting a request in writing to:
+                Name: <input  required/>
+                Organization: <input required />
+                Address: <input  required />
+                I understand that:
+                 In the event that my information has already been shared by the time my
+                authorization is revoked, it may be too late to cancel permission to share my health
+                data.
+                 I understand that I do not need to give any further permission for the information
+                detailed in Section II to be shared with the person(s) or organization(s) listed in section
+                IV.Page 3 of 3
+                 I understand that the failure to sign/submit this authorization or the cancellation of
+                this authorization will not prevent me from receiving any treatment or benefits I am
+                entitled to receive, provided this information is not required to determine if I am
+                eligible to receive those treatments or benefits or to pay for the services I receive.
+                Section VI – Signature
+                Signature: <input  required /> Date: <input required />
+                Print your name: <input required />
+                If this form is being completed by a person with legal authority to act an individual’s behalf,
+                such as a parent or legal guardian of a minor or health care agent, please complete the
+                following information:
+                Name of person completing this form: <input required />
+                Signature of person completing this form: <input required />
+                Describe below how this person has legal authority to sign this form:
+                <br />
+                <textarea cols="25" rows="25" class="w-100" required></textarea>
+                <button class="bg-primary text-white">Submit Waiver</button>
+            </p>
+        </div>
+    </div>
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        textarea{
+            resize: none;
+        }
+    </style>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        $.ajax({
+
+            url: "/api/",
+            method: "post",
+            headers: {
+                
+            },
+            success: function (data, status, jqXHR) {
+
+            }
+        });
+    </script>
 </body>
 </html>

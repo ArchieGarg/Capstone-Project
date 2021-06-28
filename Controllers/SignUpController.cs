@@ -39,5 +39,22 @@ namespace Capstone_Project.Controllers
             resp.Content = new StringContent("Account Successfully Created! You may now log in");
             return resp;
         }
+
+        [HttpPost]
+        [Route("api/SignUp/SignWaiver")]
+        public HttpResponseMessage SignWaiver([FromBody] EmailWrapper username)
+        {
+
+            User user = getUser(username.email);
+
+            HttpResponseMessage resp = Request.CreateResponse();
+            resp.Content = new StringContent("Failure");
+
+            if (user == null)
+                return resp;
+            user.signWaiver();
+            resp.Content = new StringContent("Success");
+            return resp;
+        }
     }
 }

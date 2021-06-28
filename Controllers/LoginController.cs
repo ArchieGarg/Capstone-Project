@@ -47,27 +47,36 @@ namespace Capstone_Project.Controllers
             return resp;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("api/Login/CanAccess")]
-        public HttpResponseMessage CanAccess([FromBody] String username)
+        public HttpResponseMessage CanAccess([FromBody]EmailWrapper username)
         {
-            Debug.WriteLine("Username: " + username);
-            User patient = getUser(username);
+            Debug.WriteLine("Username: " + username.email);
+            User patient = getUser(username.email);
+            Debug.WriteLine(username.email);
 
             HttpResponseMessage resp = Request.CreateResponse();
-            resp.Headers.Add("Location", "/Login.html");
 
             if (patient == null)
             {
+                Debug.WriteLine("Where is this guy so cannot proccede!");
+                resp.Headers.Add("Location", "/Login.html");
                 resp.Content = new StringContent("Unauthorized Access");
             }
             else
             {
                 resp.Content = new StringContent("Unauthorized Access");
-                if (patient.getEmail().Equals(username) && patient.IsLoggedIn())
+                if (patient.getEmail().Equals(username.email) && patient.IsLoggedIn())
                 {
+                    Debug.WriteLine("Good to Go!");
                     resp.Content = new StringContent("Authorized Access");
                     resp.Headers.Add("Location", "/Patient.html");
+                }
+                else
+                {
+                    Debug.WriteLine("Not logged in and so cannot proccede!");
+                    resp.Content = new StringContent("Unauthorized Access");
+                    resp.Headers.Add("Location", "/Login.html");
                 }
             }
             return resp;
@@ -75,26 +84,31 @@ namespace Capstone_Project.Controllers
 
         [HttpPost]
         [Route("api/Login/LogOut")]
-        public HttpResponseMessage LogOut([FromBody] String username)
+        public HttpResponseMessage LogOut([FromBody] EmailWrapper username)
         {
-            Debug.WriteLine("Username: " + username);
-            User patient = getUser(username);
+            Debug.WriteLine("Username: " + username.email);
+            User patient = getUser(username.email);
 
             HttpResponseMessage resp = Request.CreateResponse();
-            resp.Headers.Add("Location", "/Login.html");
 
             if (patient == null)
             {
+                resp.Headers.Add("Location", "/Patient.html");
                 resp.Content = new StringContent("Unauthorized Logout");
             }
             else
             {
-                resp.Content = new StringContent("Unauthorized Logout");
-                if (patient.getEmail().Equals(username))
+                
+                if (patient.getEmail().Equals(username.email))
                 {
                     patient.LogOut();
                     resp.Content = new StringContent("Success! You are now logged out");
+                    resp.Headers.Add("Location", "/Login.html");
+                }
+                else
+                {
                     resp.Headers.Add("Location", "/Patient.html");
+                    resp.Content = new StringContent("Unauthorized Logout");
                 }
             }
             return resp;
