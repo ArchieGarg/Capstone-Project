@@ -48,12 +48,12 @@ namespace Capstone_Project.Controllers
             User user = getUser(username.email);
 
             HttpResponseMessage resp = Request.CreateResponse();
-            resp.Content = new StringContent("Failure");
+            resp.Content = new StringContent("Failure, couldn't sign waiver | Most probably a technical issue. Please try again");
 
             if (user == null)
                 return resp;
             user.signWaiver();
-            resp.Content = new StringContent("Success");
+            resp.Content = new StringContent("Success! Your waiver is signed.");
             return resp;
         }
     }
