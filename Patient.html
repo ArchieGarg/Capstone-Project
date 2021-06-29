@@ -3,11 +3,12 @@
 <head>
     <link rel="icon" href="images/Sonic Care Logo (2).png" />
     <meta charset="utf-8" />
-    <title>Welcome to the new way to get the boarding part done</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Welcome to the new way to get the boarding part done | Sonic Care Health Portal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href="stylePatient.css" rel="stylesheet" media="screen" type="text/css" />
     <script src="lib/jquery/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
     <script>
 
         let user = sessionStorage.getItem("user_email");
@@ -32,12 +33,75 @@
 </head>
 <body>
 
+    <nav class="navbar sticky-top navbar-dark bg-dark navbar-expand-md">
+        <a class="navbar-brand" href="index.html">
+            <img src="/images/Sonic Care Logo (2).png" width="50px" height="50px" />
+            Patient Home
+        </a>
+
+        <button class="navbar-toggler" type="button" data-target="#navbarTogglerDemo03" data-toggle="collapse" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav ml-auto mt-2 mb-2">
+                <li class="nav-item mr-1 ml-1">
+                    <a class="nav-link active" href="/Patient.html">Home</a>
+                </li>
+                <li class="nav-item mr-1 ml-1">
+                    <a class="nav-link" href="/Notes.html">Notes Area</a>
+                </li>
+                <li class="nav-item mr-1 ml-1">
+                    <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+                <li class="nav-item mr-1 ml-1"><a class="nav-link" style="color: white; height: 100%">|</a></li>
+                <li class="nav-item">
+
+                    <button class="nav-link btn btn-danger" style="color:white" onclick="logout()">
+                        Logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="min-height: 90vh; margin-bottom: 25px;">
+
+        <div class="row h-100 w-100">
+
+            <div class="col w-100 h-100" style="min-width: 60vw">
+                <div class="d-block w-100 h-100">
+                    <img src="/images/homePageImage.PNG" class="homePageImage rounded mx-auto my-auto" style="width: 100%; height: 100%" />
+                </div>
+            </div>
+            <div class="col w-100 h-100" style="min-width: 35vw">
+
+                <div class="d-block w-100 h-100">
+
+                    <div class="textContainer text-center" style="">
+
+                        <h1 id="title">We are </h1>
+                        <div class="container">
+                            <div class="word w1">PROFESSIONAL</div>
+                            <div class="word w2">KNOWLEDGEABLE</div>
+                            <div class="word w3">CARING</div>
+                            <div class="word w4">PERSONAL</div>
+                        </div>
+                        <div style="width: 100%; height: 75px;"></div>
+                        <h2>Manage your health while safe at home</h2>
+                        <h2>Get Access to Your Important Documentation and Journal Entries</h2>
+                        <button class="btn btn-primary w-50" href="settings.html"><a class="btn-link" style="color: white" href="settings.html">Get Started&emsp;</a><i class="fas fa-mouse-pointer"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal -->
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
             <form>
                 <p>
                     HIPAA Release Form
@@ -122,6 +186,20 @@
             </form>
         </div>
     </div>
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <form id="ProviderChoosingForm">
+                <h3>Please select a provider from the list. Once you have chosen a Provider, there is no going back.</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                </ul>
+            </form>
+        </div>
+    </div>
     <style>
         /* The Modal (background) */
         .modal {
@@ -165,7 +243,111 @@
         textarea {
             resize: none;
         }
+
+        .container-fluid > .row > .col:last-child > .d-block > .textContainer {
+            color: #4196dd;
+        }
+
+        .word {
+            opacity: 0;
+            font-size: 45px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        .w1 {
+            animation: w1anim 20s infinite;
+        }
+
+        .w2 {
+            animation: w2anim 20s infinite;
+        }
+
+        .w3 {
+            animation: w3anim 20s infinite;
+        }
+
+        .w4 {
+            animation: w4anim 20s infinite;
+        }
+
+        .w5 {
+            animation: w5anim 20s infinite;
+        }
+
+        @keyframes w1anim {
+            0% {
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            20% {
+                opacity: 0;
+            }
+        }
+
+
+        @keyframes w2anim {
+            20% {
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            40% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes w3anim {
+            40% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            60% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes w4anim {
+            60% {
+                opacity: 0;
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes w5anim {
+            80% {
+                opacity: 0;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
     </style>
+
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
@@ -175,19 +357,6 @@
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
-
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
 
         $.ajax({
 
@@ -219,11 +388,31 @@
                     "email": sessionStorage.getItem("user_email")
                 }),
                 success: function (data, status, jqXHR) {
-
                     alert(data);
                 }
             });
         }
+
+        function logout() {
+            $.ajax({
+
+                url: "/api/Login/LogOut",
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify({
+                    "email": sessionStorage.getItem("user_email")
+                }),
+                success: function (data, status, jqXHR) {
+                    alert(data);
+                    window.location.assign(jqXHR.getResponseHeader("location"));
+                }
+            });
+        }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/fa2f92eb09.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/fa2f92eb09.js" crossorigin="anonymous"></script>
 </body>
 </html>

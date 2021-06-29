@@ -13,6 +13,7 @@ namespace Capstone_Project.Models
         private String password;
         private Boolean isLoggedIn;
         private Boolean signedWaiver;
+        private String provider;
 
         public User()
         {
@@ -87,6 +88,16 @@ namespace Capstone_Project.Models
         public Boolean getWaiverStatus()
         {
             return signedWaiver;
+        }
+
+        public void setProvider(String newProvider)
+        {
+            provider = newProvider;
+        }
+
+        public String getProvider()
+        {
+            return provider;
         }
     }
 }

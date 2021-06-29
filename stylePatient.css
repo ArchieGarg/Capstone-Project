@@ -1,0 +1,68 @@
+﻿#navbar li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #155aa8d0;
+}
+#background_image {
+    background-image: url("../images/homePageImage.png");
+    min-height: 620px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+ 
+    #background_image h1 {
+        font-size: 32px;
+        font-family: wordFont;
+        color: #4196dd;
+        padding-left: 60%;
+        padding-top: 25px;
+    }
+
+    #background_image h2 {
+        font-size: 32px;
+        font-family: wordFont;
+        color: #4196dd;
+        padding-left: 58%;
+    }
+
+    #background_image a {
+        color: white;
+        text-decoration: none;
+    }
+
+
+#button {
+    background-color: #4196dd;
+    padding: 15px 32px;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 12px;
+    font-family: nameFont;
+    margin-left: 60%;
+    margin-top: 300px;
+}
+
+    #button:hover {
+        background-color: #155aa8d0;
+        color: white;
+    }
+
+.textContainer > h1, .textContainer > h2 {
+    color: #4196dd;
+}
+
+.textContainer{
+    margin-top: 50%;
+}
+
+@media screen and (max-width: 935px){
+    .textContainer{
+        margin: 0;
+    }
+}

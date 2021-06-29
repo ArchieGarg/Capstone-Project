@@ -86,6 +86,7 @@
     <Content Include="images\aboutUsPage.jpg" />
     <Content Include="images\background.jpg" />
     <Content Include="images\contactPageBackground.jpg" />
+    <Content Include="images\homePageImage.PNG" />
     <Content Include="images\medicalBackground.jpg" />
     <Content Include="images\people\Donna.png" />
     <Content Include="images\people\Emily.png" />
@@ -106,8 +107,13 @@
     <Content Include="lib\ng-bootstrap\ng-bootstrap.umd.js" />
     <Content Include="lib\ng-bootstrap\ng-bootstrap.umd.min.js" />
     <Content Include="Login.html" />
+    <Content Include="Notes.html" />
     <Content Include="Patient.html" />
+    <Content Include="settings.html" />
+    <Content Include="settingsStyle.css" />
     <Content Include="Signup.html" />
+    <Content Include="style.css" />
+    <Content Include="stylePatient.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
