@@ -53,7 +53,7 @@ namespace Capstone_Project.Controllers
             if (user == null)
                 return resp;
             user.signWaiver();
-            resp.Content = new StringContent("Success! Your waiver is signed. Please scroll down to choose your primary care provider from the list and start filling out those forms.");
+            resp.Content = new StringContent("Success! Your waiver is signed. Please chose your Provider and select an appointment from the list in the next dialog");   
             return resp;
         }
     }

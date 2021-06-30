@@ -3,13 +3,13 @@
 <head>
     <link rel="icon" href="images/Sonic Care Logo (2).png" />
     <meta charset="utf-8" />
-    <title>Welcome to the new way to get the boarding part done | Sonic Care Health Portal</title>
+    <title>Welcome to the new way to get the boarding part done | Med Fast Health Portal</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
     <link href="stylePatient.css" rel="stylesheet" media="screen" type="text/css" />
     <script src="lib/jquery/jquery.js"></script>
 
-    <script>
+    <!--<script>
 
         let user = sessionStorage.getItem("user_email");
         if (user === null) {
@@ -29,13 +29,13 @@
                     window.location.assign(jqXHR.getResponseHeader("Location"));
             }
         });
-    </script>
+    </script>-->
 </head>
 <body>
 
     <nav class="navbar sticky-top navbar-dark bg-dark navbar-expand-md">
-        <a class="navbar-brand" href="index.html">
-            <img src="/images/Sonic Care Logo (2).png" width="50px" height="50px" />
+        <a class="navbar-brand" href="Patient.html">
+            <img src="/images/Med Health Logo.png" width="50px" height="50px" />
             Patient Home
         </a>
 
@@ -80,6 +80,7 @@
 
                     <div class="textContainer text-center" style="">
 
+                        <p id="PersonGreeter" class="bg-dark"></p>
                         <h1 id="title">We are </h1>
                         <div class="container">
                             <div class="word w1">PROFESSIONAL</div>
@@ -102,7 +103,7 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <form>
+            <form id="HippaForm">
                 <p>
                     HIPAA Release Form
                     Please complete all sections of this HIPAA release form. If any sections are left blank, this form
@@ -182,22 +183,199 @@
                     <br />
                     <textarea cols="25" rows="25" class="w-100" required></textarea>
                 </p>
-                <button class="bg-primary text-white" onclick="signWaiver()">Submit Waiver</button>
+                <button class="bg-primary text-white">Submit Waiver</button>
             </form>
         </div>
     </div>
 
-    <div id="myModal" class="modal">
+    <div id="AppointmentModal" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content">
 
-            <form id="ProviderChoosingForm">
-                <h3>Please select a provider from the list. Once you have chosen a Provider, there is no going back.</h3>
+            <div id="ProviderChoosingForm">
+                <h3>Please select a provider from the list. Please exercise caution as forms are provider dependant</h3>
                 <ul class="list-group">
-                    <li class="list-group-item">Cras justo odio</li>
                 </ul>
-            </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="FormModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <div id="ProviderChoosingForm" class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+                        <br /><h2 class="h3 mb-4 page-title">Settings</h2>
+                        <div class="my-4">
+
+                            <form>
+
+                                <hr class="my-4" />
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="firstname">First Name</label>
+                                        <input type="text" id="firstname" class="form-control" placeholder="Leo" />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="lastname">Last Name</label>
+                                        <input type="text" id="lastname" class="form-control" placeholder="Morris" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail4">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Leo.M@gmail.com" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress5">Address</label>
+                                    <input type="text" class="form-control" id="address" placeholder="Start Typing Here" />
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputState5">State</label>
+                                        <select id="state" class="form-control">
+                                            <option value="AL">AL</option>
+                                            <option value="AK">AK</option>
+                                            <option value="AZ">AZ</option>
+                                            <option value="AR">AR</option>
+                                            <option value="CA">CA</option>
+                                            <option value="CO">CO</option>
+                                            <option value="CT">CT</option>
+                                            <option value="DE">DE</option>
+                                            <option value="FL">FL</option>
+                                            <option value="GA">GA</option>
+                                            <option value="HI">HI</option>
+                                            <option value="ID">ID</option>
+                                            <option value="IL">IL</option>
+                                            <option value="IN">IN</option>
+                                            <option value="IA">IA</option>
+                                            <option value="KS">KS</option>
+                                            <option value="KY">KY</option>
+                                            <option value="LA">LA</option>
+                                            <option value="ME">ME</option>
+                                            <option value="MD">MD</option>
+                                            <option value="MA">MA</option>
+                                            <option value="MI">MI</option>
+                                            <option value="MN">MN</option>
+                                            <option value="MS">MS</option>
+                                            <option value="MO">MO</option>
+                                            <option value="MT">MT</option>
+                                            <option value="NE">NE</option>
+                                            <option value="NV">NV</option>
+                                            <option value="NH">NH</option>
+                                            <option value="NJ">NJ</option>
+                                            <option value="NM">NM</option>
+                                            <option value="NY">NY</option>
+                                            <option value="NC">NC</option>
+                                            <option value="ND">ND</option>
+                                            <option value="OH">OH</option>
+                                            <option value="OK">OK</option>
+                                            <option value="OR">OR</option>
+                                            <option value="PA">PA</option>
+                                            <option value="RI">RI</option>
+                                            <option value="SC">SC</option>
+                                            <option value="SD">SD</option>
+                                            <option value="TN">TN</option>
+                                            <option value="TX">TX</option>
+                                            <option value="UT">UL</option>
+                                            <option value="VT">VT</option>
+                                            <option value="VA">VA</option>
+                                            <option value="WA">WA</option>
+                                            <option value="WV">WV</option>
+                                            <option value="WI">WI</option>
+                                            <option value="WT">WY</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputZip5">Zip</label>
+                                        <input type="text" class="form-control" id="zip" placeholder="Zip Code" maxlength="5" />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="dob6">Date of Birth</label>
+                                        <input type="date" class="form-control" id="dob" />
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="age6">Age</label>
+                                        <input type="text" class="form-control" id="age" maxlength="3" size="3" />
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="gender6">Gender</label>
+                                        <select id="gender" class="form-control">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="non-binary">Non-Binary</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="weight6">Weight (lb)</label>
+                                        <input type="text" class="form-control" id="weight" maxlength="3" placeholder="135" />
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="height6">Height (ft)</label>
+                                        <input type="text" class="form-control" id="feet" maxlength="1" placeholder="5" />
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inches6">Inches (in)</label>
+                                        <input type="text" class="form-control" id="inches" maxlength="2" placeholder="4" />
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="phone">Phone</label>
+                                        <input type="text" class="form-control" id="weight" maxlength="10" placeholder="123-123-1234" />
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="insuranceCompany">Insurance Company</label>
+                                        <input type="text" class="form-control" id="insuranceCompany" placeholder="Insurance Company" />
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="insuranceGroup">Insurance Group</label>
+                                        <input type="text" class="form-control" id="insuranceGroup" placeholder="Insurance Group" />
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="ID">Insurance or Policy ID</label>
+                                        <input type="text" class="form-control" id="ID" placeholder="Insurance ID" />
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="SSN">Social Security Number</label>
+                                        <input type="text" class="form-control" id="SSN" placeholder="Social Securty Number" />
+                                    </div>
+                                </div>
+
+
+                                <hr class="my-4" />
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputPassword4">Old Password</label>
+                                            <input type="password" class="form-control" id="inputPassword5" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword5">New Password</label>
+                                            <input type="password" class="form-control" id="inputPassword6" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword6">Confirm Password</label>
+                                            <input type="password" class="form-control" id="inputPassword7" />
+                                            <div class="invalid-feedback if">
+                                                Please make sure passwords match!
+                                            </div>
+                                        </div>
+                                    </div>
+                                <button type="submit" class="btn btn-primary" onclick="save()">Save Changes</button>
+                                <button type="reset" class="btn btn-danger">Reset Form</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <style>
@@ -376,7 +554,26 @@
             }
         });
 
-        function signWaiver() {
+        $.ajax({
+
+            url: "/api/User/GetUsername",
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({
+                "email": sessionStorage.getItem("user_email")
+            }),
+            success: function (data, status, jqXHR) {
+
+                $("#PersonGreeter").text("Welcome!: " + data);
+                sessionStorage.setItem("username", data);
+            }
+        });
+
+        $("#HippaForm").submit(function (event) {
+
+            event.preventDefault();
             $.ajax({
 
                 url: "/api/SignUp/SignWaiver",
@@ -388,9 +585,57 @@
                     "email": sessionStorage.getItem("user_email")
                 }),
                 success: function (data, status, jqXHR) {
-                    alert(data);
+                    $("#myModal").css("display", "none");
+                    buildList();
+                    $("#AppointmentModal").css("display", "block");
                 }
             });
+        });
+
+        function save() {
+            $("#FormModal").css("display", "none");
+            window.location.reload(true);   
+        }
+
+        function buttonClickHandler() {
+            console.log(this.id);
+            $.ajax({
+                url: "api/User/AddApptDateTime/",
+                method: "post",
+                headers: {
+                    "content-type": "application/json"
+                },
+                data: JSON.stringify({ "email": sessionStorage.getItem("user_email"), "dateTime": $("#" + this.id).text() }),
+                success: function (data, status, jqXHR) {
+                    alert(data);
+                    $("#AppointmentModal").css("display", "none");
+                    $("#FormModal").css("display", "block");
+                }
+            });
+        }
+
+        function buildList() {
+            $.ajax({
+                url: "/api/Parent/GetProviders",
+                method: "GET",
+                success: function (data, success, jqXHR) {
+                    console.log(data);
+                    let i = 0;
+                    for (const key in data) {
+                        $(`<li class="list-group-item" id="listitem${key}"></li>`).appendTo($(".list-group"));
+                        $(`<h1>${data[key].name}</h1>`).appendTo($(`#listitem${key}`));
+                        $(`<h3>${data[key].address}</h3>`).appendTo($(`#listitem${key}`));
+                        let timings = data[key].apptTimes;
+                        for (const keyTime in timings) {
+
+                            $(`<button class="bg-primary text-dark border-0 ml-2 mr-2" id="buttonTiming${i}">${timings[keyTime]}</button>`).appendTo($(`#listitem${key}`));
+                            $(`#buttonTiming${i}`).click(buttonClickHandler);
+                            i++;
+                        }
+                    }
+                    $("#AppointmentModal").css("display", "block");
+                }
+            })
         }
 
         function logout() {

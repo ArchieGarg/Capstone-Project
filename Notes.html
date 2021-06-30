@@ -2,15 +2,37 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Notes | Sonic Care Health Portal</title>
+    <title>Notes | Med Fast Health Portal</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
     <link href="stylePatient.css" rel="stylesheet" media="screen" type="text/css" />
+    <script src="lib/jquery/jquery.js"></script>
+    <!--<script>
+
+        let user = sessionStorage.getItem("user_email");
+        if (user === null) {
+            window.location = "/index.html";
+        }
+
+        $.ajax({
+            url: "/api/Login/CanAccess",
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({ "email": user }),
+            success: function (data, status, jqXHR) {
+
+                if (data === "Unauthorized Access")
+                    window.location.assign(jqXHR.getResponseHeader("Location"));
+            }
+        });
+    </script>-->
 </head>
 <body>
     <nav class="navbar sticky-top navbar-dark bg-dark navbar-expand-md">
-        <a class="navbar-brand" href="index.html">
-            <img src="/images/Sonic Care Logo (2).png" width="50px" height="50px" />
+        <a class="navbar-brand" href="Patient.html">
+            <img src="/images/Med Health Logo.png" width="50px" height="50px" />
             Patient Home
         </a>
 
@@ -39,6 +61,30 @@
             </ul>
         </div>
     </nav>
+
+    <div class="" style="background-color: rgba(255, 255, 255, 0.7); text-align: center;">
+        <h1 id="Greeting"></h1>
+        <p id="AppointmentDateTime"></p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Tips for Writing Your Journal Entries:</h1>
+                <ul>
+                    <li>Be descriptive</li>
+                    <li>Avoid Personal Problems and focus on your health in terms of Heart Rate, etc...</li>
+                    <li>Make sure to include any readings from a thermometer, blood oxygen devices, and more</li>
+                    <li>If there are any underlying conditions or previous surgeries or other procedures, please let the doctor know by being as detailed as to why it was done and how is the affected area feeling right now</li>
+                </ul>
+            </div>
+            <div class="col">
+                <textarea rows="25" cols="25" class="w-100"></textarea>
+                <br />
+                <button class="bg-primary text-dark w-100">Submit</button>
+            </div>
+        </div>
+    </div>
     <script>
         function logout() {
             $.ajax({
@@ -53,9 +99,26 @@
                 }),
                 success: function (data, status, jqXHR) {
                     alert(data);
+                    window.location.assign(jqXHR.getResponseHeader("location"));
                 }
             });
         }
+
+        $.ajax({
+
+            url: "/api/User/GetApptDateTime",
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({
+                "email": sessionStorage.getItem("user_email")
+            }),
+            success: function (data, status, jqXHR) {
+                $("#Greeting").text("Hello, " + sessionStorage.getItem("username") + ", nice to see you. You have an appointment scheduled for:");
+                $("#AppointmentDateTime").text(data);
+            }
+        });
     </script>
 </body>
 </html>

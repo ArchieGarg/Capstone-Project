@@ -13,7 +13,8 @@ namespace Capstone_Project.Models
         private String password;
         private Boolean isLoggedIn;
         private Boolean signedWaiver;
-        private String provider;
+        private Provider provider;
+        private String apptDateTime;
 
         public User()
         {
@@ -28,6 +29,7 @@ namespace Capstone_Project.Models
             this.password = password;
             isLoggedIn = false;
             signedWaiver = false;
+            apptDateTime = "";
         }
 
         public void LogIn()
@@ -90,14 +92,24 @@ namespace Capstone_Project.Models
             return signedWaiver;
         }
 
-        public void setProvider(String newProvider)
+        public void setProvider(Provider newProvider)
         {
             provider = newProvider;
         }
 
-        public String getProvider()
+        public Provider getProvider()
         {
             return provider;
+        }
+
+        public void setApptDateTime(String newApptDateTime)
+        {
+            apptDateTime = newApptDateTime;
+        }
+
+        public String getApptDateTime()
+        {
+            return apptDateTime;
         }
     }
 }

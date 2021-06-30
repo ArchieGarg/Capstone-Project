@@ -87,6 +87,7 @@
     <Content Include="images\background.jpg" />
     <Content Include="images\contactPageBackground.jpg" />
     <Content Include="images\homePageImage.PNG" />
+    <Content Include="images\Med Health Logo.png" />
     <Content Include="images\medicalBackground.jpg" />
     <Content Include="images\people\Donna.png" />
     <Content Include="images\people\Emily.png" />
@@ -96,6 +97,7 @@
     <Content Include="images\people\Kyra.jpeg" />
     <Content Include="images\people\Leo.PNG" />
     <Content Include="images\people\Olivia.jpg" />
+    <Content Include="images\people\Phoebe.jpg" />
     <Content Include="images\people\Rishabh.jpeg" />
     <Content Include="images\people\Sanjit.png" />
     <Content Include="images\Sonic Care Logo %282%29.png" />
@@ -125,6 +127,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AppointmentWrapper.cs" />
     <Compile Include="Models\EmailWrapper.cs" />
     <Compile Include="Models\LoginPayload.cs" />
     <Compile Include="Models\Patient.cs" />
