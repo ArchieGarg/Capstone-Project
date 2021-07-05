@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/Sonic Care Logo (2).png">
+    <title>Settings | Med Fast Health Portal</title>
+    <link rel="stylesheet" href="stylePatient.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="settingsStyle.css" rel="stylesheet" media="screen" type="text/css" />
+    <script src="https://kit.fontawesome.com/fa2f92eb09.js" crossorigin="anonymous"></script>
+    <script src="lib/jquery/jquery.js"></script>
+    <script>
+
+        let user = sessionStorage.getItem("user_email");
+        if (user === null) {
+            window.location = "/index.html";
+        }
+
+        $.ajax({
+            url: "/api/Login/CanAccess",
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({ "email": user }),
+            success: function (data, status, jqXHR) {
+
+                if (data === "Unauthorized Access")
+                    window.location.assign(jqXHR.getResponseHeader("Location"));
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-dark bg-dark navbar-expand-md">
+        <a class="navbar-brand" href="index.html">
+            <img src="/images/Med Health Logo.png" width="50px" height="50px" />
+            Patient - Settings Page
+        </a>
+        <button class="navbar-toggler" type="button" data-target="#navbarTogglerDemo03" data-toggle="collapse" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav ml-auto mt-2 mb-2">
+                <li class="nav-item mr-1 ml-1">
+                    <a class="nav-link" href="/Patient.html">Home</a>
+                </li>
+                <li class="nav-item mr-1 ml-1">
+                    <a class="nav-link" href="Notes.html">Notes Area</a>
+                </li>
+                <li class="nav-item mr-1 ml-1 active">
+                    <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+                <li class="nav-item mr-1 ml-1"><a class="nav-link" style="color: white; height: 100%">|</a></li>
+                <li class="nav-item">
+
+                    <button class="nav-link btn btn-danger" style="color:white" onclick="logout()">
+                        Logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--information about user-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+                <br /><h2 class="h3 mb-4 page-title">Settings</h2>
+                <div class="my-4">
+
+                    <form>
+
+                        <hr class="my-4" />
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="firstname">First Name</label>
+                                <input type="text" id="firstname" class="form-control" placeholder="Leo" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" id="lastname" class="form-control" placeholder="Morris" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Leo.M@gmail.com" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress5">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="Start Typing Here" />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputState5">State</label>
+                                <select id="state" class="form-control">
+                                    <option value="AL">AL</option>
+                                    <option value="AK">AK</option>
+                                    <option value="AZ">AZ</option>
+                                    <option value="AR">AR</option>
+                                    <option value="CA">CA</option>
+                                    <option value="CO">CO</option>
+                                    <option value="CT">CT</option>
+                                    <option value="DE">DE</option>
+                                    <option value="FL">FL</option>
+                                    <option value="GA">GA</option>
+                                    <option value="HI">HI</option>
+                                    <option value="ID">ID</option>
+                                    <option value="IL">IL</option>
+                                    <option value="IN">IN</option>
+                                    <option value="IA">IA</option>
+                                    <option value="KS">KS</option>
+                                    <option value="KY">KY</option>
+                                    <option value="LA">LA</option>
+                                    <option value="ME">ME</option>
+                                    <option value="MD">MD</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MI">MI</option>
+                                    <option value="MN">MN</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MO">MO</option>
+                                    <option value="MT">MT</option>
+                                    <option value="NE">NE</option>
+                                    <option value="NV">NV</option>
+                                    <option value="NH">NH</option>
+                                    <option value="NJ">NJ</option>
+                                    <option value="NM">NM</option>
+                                    <option value="NY">NY</option>
+                                    <option value="NC">NC</option>
+                                    <option value="ND">ND</option>
+                                    <option value="OH">OH</option>
+                                    <option value="OK">OK</option>
+                                    <option value="OR">OR</option>
+                                    <option value="PA">PA</option>
+                                    <option value="RI">RI</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SD">SD</option>
+                                    <option value="TN">TN</option>
+                                    <option value="TX">TX</option>
+                                    <option value="UT">UL</option>
+                                    <option value="VT">VT</option>
+                                    <option value="VA">VA</option>
+                                    <option value="WA">WA</option>
+                                    <option value="WV">WV</option>
+                                    <option value="WI">WI</option>
+                                    <option value="WT">WY</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputZip5">Zip</label>
+                                <input type="text" class="form-control" id="zip" placeholder="Zip Code" maxlength="5" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="dob6">Date of Birth</label>
+                                <input type="date" class="form-control" id="dob" />
+                            </div>
+                            <div class="form-group col-md-1">
+                                <label for="age6">Age</label>
+                                <input type="text" class="form-control" id="age" maxlength="3" size="3" />
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="gender6">Gender</label>
+                                <select id="gender" class="form-control">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="non-binary">Non-Binary</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="weight6">Weight (lb)</label>
+                                <input type="text" class="form-control" id="weight" maxlength="3" placeholder="135" />
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="height6">Height (ft)</label>
+                                <input type="text" class="form-control" id="feet" maxlength="1" placeholder="5" />
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inches6">Inches (in)</label>
+                                <input type="text" class="form-control" id="inches" maxlength="2" placeholder="4" />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="phone">Phone</label>
+                                <input type="text" class="form-control" id="weight" maxlength="10" placeholder="123-123-1234" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="insuranceCompany">Insurance Company</label>
+                                <input type="text" class="form-control" id="insuranceCompany" placeholder="Insurance Company" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="insuranceGroup">Insurance Group</label>
+                                <input type="text" class="form-control" id="insuranceGroup" placeholder="Insurance Group" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="ID">Insurance or Policy ID</label>
+                                <input type="text" class="form-control" id="ID" placeholder="Insurance ID" />
+                            </div>
+
+                        </div>
+
+
+                        <hr class="my-4" />
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputPassword4">Old Password</label>
+                                    <input type="password" class="form-control" id="inputPassword5" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword5">New Password</label>
+                                    <input type="password" class="form-control" id="inputPassword6" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword6">Confirm Password</label>
+                                    <input type="password" class="form-control" id="inputPassword7" />
+                                    <div class="invalid-feedback if">
+                                        Please make sure passwords match!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-2">Password requirements</p>
+                                <p class="small text-muted mb-2">To create a new password, you have to meet all of the following requirements:</p>
+                                <ul class="small text-muted pl-4 mb-0">
+                                    <li id="req1">Minimum 8 character</li>
+                                    <li id="req2">At least one special character</li>
+                                    <li id="req3">At least one number</li>
+                                    <li id="req4">At least one captial letter</li>
+                                    <li id="req5">At least one lowercase letter</li>
+                                    <li id="req6">Can’t be the same as a previous password</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="reset" class="btn btn-danger">Reset Form</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+    <script>
+        let myInput = document.getElementById("inputPassword6");
+        let specialCharacter = document.getElementById("req2");
+        let capital = document.getElementById("req4");
+        let lowercase = document.getElementById("req5");
+        let number = document.getElementById("req3");
+        let length = document.getElementById("req1");
+
+        // When the user starts to type something inside the password field
+        myInput.addEventListener("keyup", function (event) {
+
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInput.value.match(lowerCaseLetters)) {
+                lowercase.classList.remove("invalid");
+                lowercase.classList.add("valid");
+            } else {
+                lowercase.classList.remove("valid");
+                lowercase.classList.add("invalid");
+            }
+
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
+
+            //Validate Special Characters
+            var specialCharacters = /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/;
+            if (myInput.value.match(specialCharacters)) {
+                specialCharacter.classList.remove("invalid");
+                specialCharacter.classList.add("valid");
+            } else {
+                specialCharacter.classList.add("invalid");
+                specialCharacter.classList.remove("valid");
+            }
+
+            // Validate length
+            if (myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
+        });
+
+        document.getElementById("inputPassword7").addEventListener("keyup", function (event) {
+
+            if (this.value !== myInput.value) {
+
+                this.classList.remove("is-valid");
+                this.classList.add("is-invalid");
+                document.getElementsByClassName("if")[0].style.display = "block";
+            } else {
+                this.classList.remove("is-invalid");
+                this.classList.add("is-valid");
+                document.getElementsByClassName("if")[0].style.display = "none";
+            }
+        });
+
+        function logout() {
+            $.ajax({
+
+                url: "/api/Login/LogOut",
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify({
+                    "email": sessionStorage.getItem("user_email")
+                }),
+                success: function (data, status, jqXHR) {
+                    alert(data);
+                    window.location.assign(jqXHR.getResponseHeader("location"));
+                }
+            });
+        }
+    </script>
+</body>
+</html>

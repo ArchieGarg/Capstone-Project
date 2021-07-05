@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#navbar h1 {
+    float: left;
+    padding-left: 45px;
+    padding-right: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-family: nameFont;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    background-color: #333;
+    color: white;
+}
+
+#navbar ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+}
+
+#navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    text-decoration: none;
+    font-family: nameFont;
+}
+
+#navbar li {
+    display: inline;
+    float: right;
+}
+
+    #navbar li a:hover {
+        background-color: #111;
+    }
+
+.active {
+    background-color: #155aa8d0;
+}
+
+@font-face {
+    font-family: nameFont;
+    src: url(/nameFont.otf) format('opentype');
+}
+
+@font-face {
+    font-family: wordFont;
+    src: url(wordFont.ttf);
+}
+
+#background_image {
+    background-image: url("/images/homePageImage.png");
+    min-height: 620px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+    #background_image h1 {
+        font-size: 32px;
+        font-family: wordFont;
+        color: #4196dd;
+        padding-left: 60%;
+        padding-top: 25px;
+    }
+
+    #background_image h2 {
+        font-size: 32px;
+        font-family: wordFont;
+        color: #4196dd;
+        padding-left: 58%;
+    }
+
+    #background_image a {
+        color: white;
+        text-decoration: none;
+    }
+
+
+#button {
+    background-color: #4196dd;
+    padding: 15px 32px;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 12px;
+    font-family: nameFont;
+    margin-left: 60%;
+    margin-top: 300px;
+}
+
+    #button:hover {
+        background-color: #155aa8d0;
+        color: white;
+    }
+
+
+
+
+
+#footer {
+    background-color: #333;
+    color: white;
+}
+
+    #footer h1 {
+        font-family: nameFont;
+        font-size: 30px;
+    }
+
+#fLeft {
+    background-color: #333;
+    float: left;
+    width: 50%;
+    height: 566px;
+}
+
+    #fLeft h1 {
+        padding: 8% 65px 25px;
+    }
+
+    #fLeft hr {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #fLeft a {
+        text-decoration: none;
+        font-family: wordFont;
+        color: white;
+        padding-left: 7.5%;
+    }
+
+    #fLeft p {
+        padding-top: 10px;
+        padding-bottom: 35px;
+    }
+
+/* #right{
+  float: right;
+} */
+
+
