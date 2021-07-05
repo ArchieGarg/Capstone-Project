@@ -9,7 +9,7 @@
     <link href="stylePatient.css" rel="stylesheet" media="screen" type="text/css" />
     <script src="lib/jquery/jquery.js"></script>
 
-    <!--<script>
+    <script>
 
         let user = sessionStorage.getItem("user_email");
         if (user === null) {
@@ -29,7 +29,7 @@
                     window.location.assign(jqXHR.getResponseHeader("Location"));
             }
         });
-    </script>-->
+    </script>
 </head>
 <body>
 
@@ -209,7 +209,7 @@
             <div id="ProviderChoosingForm" class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 col-xl-8 mx-auto">
-                        <br /><h2 class="h3 mb-4 page-title">Settings</h2>
+                        <br /><h2 class="h3 mb-4 page-title intakeFormTitle"></h2>
                         <div class="my-4">
 
                             <form>
@@ -352,25 +352,10 @@
 
                                 <hr class="my-4" />
                                 <div class="row mb-4">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="inputPassword4">Old Password</label>
-                                            <input type="password" class="form-control" id="inputPassword5" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword5">New Password</label>
-                                            <input type="password" class="form-control" id="inputPassword6" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword6">Confirm Password</label>
-                                            <input type="password" class="form-control" id="inputPassword7" />
-                                            <div class="invalid-feedback if">
-                                                Please make sure passwords match!
-                                            </div>
-                                        </div>
-                                    </div>
-                                <button type="submit" class="btn btn-primary" onclick="save()">Save Changes</button>
-                                <button type="reset" class="btn btn-danger">Reset Form</button>
+                                    
+                                    <button type="submit" class="btn btn-primary col" onclick="save()">Save Changes</button>
+                                    <button type="reset" class="btn btn-danger col">Reset Form</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -599,6 +584,7 @@
 
         function buttonClickHandler() {
             console.log(this.id);
+            sessionStorage.setItem("button_id{user}", this.id);
             $.ajax({
                 url: "api/User/AddApptDateTime/",
                 method: "post",
@@ -610,6 +596,19 @@
                     alert(data);
                     $("#AppointmentModal").css("display", "none");
                     $("#FormModal").css("display", "block");
+
+                    let headerId = 0;
+                    let id = parseInt((this.id + "").substring(11));
+                    console.log(id);
+                    if (id >= 0 && id <= 3)
+                        headerId = 0;
+                    else if (id >= 4 && id <= 7)
+                        headerId = 1;
+                    else if (id >= 8 && id <= 11)
+                        headerId = 2;
+                    else if (id >= 12 && id <= 15)
+                        headerId = 3;
+                    $(".intakeFormTitle").text("Welcome to the patient intake form for site: " + $(`.SiteHeading${headerId}`).text());
                 }
             });
         }
@@ -623,7 +622,7 @@
                     let i = 0;
                     for (const key in data) {
                         $(`<li class="list-group-item" id="listitem${key}"></li>`).appendTo($(".list-group"));
-                        $(`<h1>${data[key].name}</h1>`).appendTo($(`#listitem${key}`));
+                        $(`<h1 class="SiteHeading${key}">${data[key].name}</h1>`).appendTo($(`#listitem${key}`));
                         $(`<h3>${data[key].address}</h3>`).appendTo($(`#listitem${key}`));
                         let timings = data[key].apptTimes;
                         for (const keyTime in timings) {
